@@ -1,0 +1,63 @@
+from scipy import stats
+
+# Given datasets
+data1 = [10, 20, 20, 30, 40, 50, 60, 70, 80, 90]
+data2 = [12, 18, 25, 28, 35, 45, 55, 65, 75, 85]
+
+# 1. Statistical Measures
+print("----- STATISTICAL MEASURES -----")
+
+print("Mean:", stats.tmean(data1))
+print("Geometric Mean:", stats.gmean(data1))
+print("Harmonic Mean:", stats.hmean(data1))
+
+print("Variance:", stats.tvar(data1))
+print("Standard Deviation:", stats.tstd(data1))
+
+print("Minimum:", min(data1))
+print("Maximum:", max(data1))
+print("Range:", max(data1) - min(data1))
+
+
+# 2. Z-Score
+print("\n----- Z-SCORE -----")
+
+z_score = stats.zscore(data1)
+print("Z-Scores:")
+print(z_score)
+
+
+# 3. One-Sample T-Test
+print("\n----- ONE-SAMPLE T-TEST -----")
+
+t_stat, p_value = stats.ttest_1samp(data1, 50)
+
+print("T-statistic:", t_stat)
+print("P-value:", p_value)
+
+
+# 4. Independent Two-Sample T-Test
+print("\n----- TWO-SAMPLE T-TEST -----")
+
+t_stat, p_value = stats.ttest_ind(data1, data2)
+
+print("T-statistic:", t_stat)
+print("P-value:", p_value)
+
+
+# 5. Pearson Correlation Test
+print("\n----- PEARSON CORRELATION -----")
+
+correlation, p_value = stats.pearsonr(data1, data2)
+
+print("Correlation:", correlation)
+print("P-value:", p_value)
+
+
+# 6. Normality Test
+print("\n----- NORMALITY TEST -----")
+
+statistic, p_value = stats.shapiro(data1)
+
+print("Shapiro-Wilk Statistic:", statistic)
+print("P-value:", p_value)
