@@ -1,0 +1,33 @@
+import numpy as np
+from scipy import stats
+
+# Sample data
+data = [52, 48, 55, 51, 49, 53, 50, 54, 47, 51]
+
+# Hypothesized population mean
+population_mean = 50
+
+# Significance level
+alpha = 0.05
+
+# Calculate sample mean
+sample_mean = np.mean(data)
+
+# Perform one-sample t-test
+t_statistic, p_value = stats.ttest_1samp(data, population_mean)
+
+# Display results
+print("Sample Data:", data)
+print("Sample Mean:", round(sample_mean, 2))
+print("Population Mean:", population_mean)
+print("T-statistic:", round(t_statistic, 4))
+print("P-value:", round(p_value, 4))
+print("Significance Level:", alpha)
+
+# Interpret the result
+if p_value < alpha:
+    print("\nResult: Reject the Null Hypothesis (H0)")
+    print("There is a significant difference between the sample mean and population mean.")
+else:
+    print("\nResult: Fail to Reject the Null Hypothesis (H0)")
+    print("There is no significant difference between the sample mean and population mean.")
