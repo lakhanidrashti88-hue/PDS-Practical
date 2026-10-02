@@ -1,0 +1,30 @@
+import requests
+from bs4 import BeautifulSoup
+
+# URL of the web page
+url = "https://example.com"
+
+# Send request to the web page
+response = requests.get(url)
+
+# Parse HTML using BeautifulSoup
+soup = BeautifulSoup(response.text, "html.parser")
+
+# Extract title
+print("Page Title:")
+print(soup.title.text)
+
+# Extract all headings
+print("\nHeadings:")
+for heading in soup.find_all(["h1", "h2", "h3"]):
+    print(heading.text.strip())
+
+# Extract all paragraphs
+print("\nParagraphs:")
+for paragraph in soup.find_all("p"):
+    print(paragraph.text.strip())
+
+# Extract all links
+print("\nLinks:")
+for link in soup.find_all("a"):
+    print(link.get("href"))
