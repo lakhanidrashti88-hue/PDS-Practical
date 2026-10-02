@@ -1,0 +1,62 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+months = ["Jan", "Feb", "Mar", "Apr", "May"]
+sales = [20, 35, 30, 45, 50]
+
+students = ["A", "B", "C", "D", "E"]
+marks = [75, 85, 65, 90, 80]
+
+ages = [18, 19, 20, 20, 21, 22, 22, 23, 24, 25, 25, 26]
+
+subjects = ["Python", "Java", "Web", "DBMS"]
+students_count = [40, 30, 20, 10]
+
+height = [150, 155, 160, 165, 170, 175, 180]
+weight = [45, 50, 55, 60, 65, 70, 78]
+
+# Create figure and subplots
+fig, axes = plt.subplots(2, 3, figsize=(15, 8))
+
+# 1. Line Plot
+axes[0, 0].plot(months, sales, marker="o")
+axes[0, 0].set_title("Line Plot")
+axes[0, 0].set_xlabel("Month")
+axes[0, 0].set_ylabel("Sales")
+
+# 2. Bar Chart
+axes[0, 1].bar(students, marks)
+axes[0, 1].set_title("Bar Chart")
+axes[0, 1].set_xlabel("Students")
+axes[0, 1].set_ylabel("Marks")
+
+# 3. Histogram
+axes[0, 2].hist(ages, bins=5, edgecolor="black")
+axes[0, 2].set_title("Histogram")
+axes[0, 2].set_xlabel("Age")
+axes[0, 2].set_ylabel("Frequency")
+
+# 4. Pie Chart
+axes[1, 0].pie(
+    students_count,
+    labels=subjects,
+    autopct="%1.1f%%"
+)
+axes[1, 0].set_title("Pie Chart")
+
+# 5. Scatter Plot
+axes[1, 1].scatter(height, weight)
+axes[1, 1].set_title("Scatter Plot")
+axes[1, 1].set_xlabel("Height")
+axes[1, 1].set_ylabel("Weight")
+
+# Remove unused subplot
+axes[1, 2].axis("off")
+
+# Figure properties
+fig.suptitle("Different Types of Matplotlib Plots", fontsize=18)
+fig.tight_layout()
+
+# Display all plots
+plt.show()
