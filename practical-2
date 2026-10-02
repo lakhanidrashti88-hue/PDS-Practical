@@ -1,0 +1,98 @@
+# 1. LIST
+print("----- LIST -----")
+
+fruits = ["Apple", "Banana", "Mango", "Orange"]
+print("Original List:", fruits)
+
+fruits.append("Grapes")
+print("After append:", fruits)
+
+fruits.insert(1, "Watermelon")
+print("After insert:", fruits)
+
+fruits.remove("Banana")
+print("After remove:", fruits)
+
+fruits.pop()
+print("After pop:", fruits)
+
+fruits.sort()
+print("After sort:", fruits)
+
+fruits.reverse()
+print("After reverse:", fruits)
+
+print("Length:", len(fruits))
+
+
+# 2. TUPLE
+print("\n----- TUPLE -----")
+
+numbers = (10, 20, 30, 20, 40)
+print("Original Tuple:", numbers)
+
+print("Count of 20:", numbers.count(20))
+print("Index of 30:", numbers.index(30))
+print("Length:", len(numbers))
+
+
+# 3. SET
+print("\n----- SET -----")
+
+set1 = {10, 20, 30, 40}
+set2 = {30, 40, 50, 60}
+
+print("Set 1:", set1)
+print("Set 2:", set2)
+
+set1.add(70)
+print("After add:", set1)
+
+set1.remove(20)
+print("After remove:", set1)
+
+print("Union:", set1.union(set2))
+print("Intersection:", set1.intersection(set2))
+print("Difference:", set1.difference(set2))
+
+
+# 4. DICTIONARY
+print("\n----- DICTIONARY -----")
+
+student = {
+    "name": "Drashti",
+    "age": 19,
+    "course": "Computer Engineering"
+}
+
+print("Original Dictionary:", student)
+
+student["city"] = "Surat"
+print("After adding:", student)
+
+student["age"] = 20
+print("After updating age:", student)
+
+student.pop("city")
+print("After removing city:", student)
+
+print("Keys:", student.keys())
+print("Values:", student.values())
+print("Items:", student.items())
+
+
+# 5. STRING
+print("\n----- STRING -----")
+
+text = "Python Programming"
+print("Original String:", text)
+
+print("Upper:", text.upper())
+print("Lower:", text.lower())
+print("Title:", text.title())
+print("Replace:", text.replace("Python", "Java"))
+print("Length:", len(text))
+print("Count of 'm':", text.count("m"))
+print("Find 'Programming':", text.find("Programming"))
+print("Starts with Python:", text.startswith("Python"))
+print("Ends with ing:", text.endswith("ing"))
