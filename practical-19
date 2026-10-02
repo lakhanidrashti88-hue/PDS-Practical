@@ -1,0 +1,75 @@
+import pandas as pd
+
+# Create first DataFrame
+data1 = {
+    "Name": ["Amit", "Riya", "Rahul", "Neha"],
+    "Marks": [85, 92, 76, 88],
+    "Age": [20, 21, 20, 22]
+}
+
+df1 = pd.DataFrame(data1)
+
+# Create second DataFrame
+data2 = {
+    "Name": ["Karan", "Priya"],
+    "Marks": [95, 80],
+    "Age": [21, 20]
+}
+
+df2 = pd.DataFrame(data2)
+
+print("Original DataFrame:")
+print(df1)
+
+# --------------------------------
+# 1. Slicing
+# --------------------------------
+
+print("\n1. Slicing:")
+print(df1.iloc[0:3, 0:2])
+
+# --------------------------------
+# 2. Filtering
+# --------------------------------
+
+print("\n2. Filtering (Marks > 80):")
+print(df1[df1["Marks"] > 80])
+
+# --------------------------------
+# 3. Sorting
+# --------------------------------
+
+print("\n3. Sorting by Marks:")
+print(df1.sort_values(by="Marks", ascending=False))
+
+# --------------------------------
+# 4. Concatenating
+# --------------------------------
+
+df = pd.concat([df1, df2], ignore_index=True)
+
+print("\n4. Concatenated DataFrame:")
+print(df)
+
+# --------------------------------
+# 5. Aggregating
+# --------------------------------
+
+print("\n5. Aggregation:")
+print("Average Marks:", df["Marks"].mean())
+print("Maximum Marks:", df["Marks"].max())
+print("Minimum Marks:", df["Marks"].min())
+print("Total Marks:", df["Marks"].sum())
+
+# --------------------------------
+# 6. Normalizing
+# Min-Max Normalization
+# --------------------------------
+
+df["Normalized_Marks"] = (
+    (df["Marks"] - df["Marks"].min())
+    / (df["Marks"].max() - df["Marks"].min())
+)
+
+print("\n6. Normalized Data:")
+print(df)
