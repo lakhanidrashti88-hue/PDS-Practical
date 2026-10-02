@@ -1,0 +1,74 @@
+# Write operation
+file = open("student.txt", "w")
+file.write("Name: Drashti\n")
+file.write("Course: Computer Engineering\n")
+file.write("Age: 19\n")
+file.close()
+
+# Append operation
+file = open("student.txt", "a")
+file.write("College: SSASIT\n")
+file.close()
+
+# Read operation
+file = open("student.txt", "r")
+data = file.read()
+print("File Content:")
+print(data)
+file.close()
+
+import csv
+
+# Write operation
+with open("student.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    
+    writer.writerow(["Name", "Age", "Course"])
+    writer.writerow(["Drashti", 19, "Computer Engineering"])
+    writer.writerow(["Rahul", 20, "Computer Engineering"])
+
+# Append operation
+with open("student.csv", "a", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow(["Priya", 19, "Computer Engineering"])
+
+# Read operation
+with open("student.csv", "r") as file:
+    reader = csv.reader(file)
+    
+    print("CSV File Content:")
+    for row in reader:
+        print(row)
+
+        import pickle
+
+# Write operation
+student = {
+    "name": "Drashti",
+    "age": 19,
+    "course": "Computer Engineering"
+}
+
+with open("student.dat", "wb") as file:
+    pickle.dump(student, file)
+
+# Append operation
+student2 = {
+    "name": "Rahul",
+    "age": 20,
+    "course": "Computer Engineering"
+}
+
+with open("student.dat", "ab") as file:
+    pickle.dump(student2, file)
+
+# Read operation
+print("Binary File Content:")
+
+with open("student.dat", "rb") as file:
+    while True:
+        try:
+            data = pickle.load(file)
+            print(data)
+        except EOFError:
+            break
